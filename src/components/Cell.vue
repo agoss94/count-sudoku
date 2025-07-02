@@ -1,14 +1,11 @@
 <script setup>
 import { inject } from 'vue'
 const props = defineProps({
-  blockIndex: Number,
-  index: Number
+  row: Number,
+  column: Number,
 })
 const board = inject('board')
-
-let row = Math.floor(props.blockIndex / 3) * 3 + Math.floor(props.index / 3)  
-let column = (props.blockIndex % 3) * 3 + props.index % 3
-const cellNumber = board[row][column]
+const cellNumber = board[props.row][props.column]
 </script>
 <template>
   <div class="cell">
